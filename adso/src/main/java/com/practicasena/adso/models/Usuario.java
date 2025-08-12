@@ -1,5 +1,7 @@
 package com.practicasena.adso.models;
 
+import org.springframework.web.bind.annotation.GetMapping;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,4 +26,6 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String ciudad;
+
+    
 }
