@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AdsoApplication<adso>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.practicasena.adso.AdsoApplication",
+            "projectName": "adso",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
