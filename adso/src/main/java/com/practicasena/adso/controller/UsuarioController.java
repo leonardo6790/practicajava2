@@ -2,12 +2,15 @@ package com.practicasena.adso.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.practicasena.adso.dto.UsuarioDTO;
 import com.practicasena.adso.models.Usuario;
 import com.practicasena.adso.repositoryes.UsuarioRepositorio;
+import com.practicasena.adso.services.UsuarioServices;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -24,6 +29,7 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioRepositorio userRepo;
+    private UsuarioServices userService;
 
     @GetMapping("/user")
     public String UsuarioControl() {
@@ -62,5 +68,11 @@ public class UsuarioController {
         userupdate.setCiudad(usuario.getCiudad());
         userRepo.save(userupdate);
         return "Usuario actualizado";
+    }   
+
+    @GetMapping("/Dot/{id}")
+    public ResponseEntity<UsuarioDTO> getUsuario(@PathVariable Integer id_usuario) {
+        return new ResponseEntity<>(userService.getUsuario(id_usuario),HttpStatus.OK);
     }
+
 }

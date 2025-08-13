@@ -14,10 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-
-
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -53,6 +50,11 @@ public class ProductosControler {
     actualizarProductos.setCategoria(productos.getCategoria());
     prodRepo.save(actualizarProductos);
     return "producto actualizado";
+  }
+
+  @GetMapping("/buscarcat/{categoria}")
+  public List<Productos> encontrarcategoria(@PathVariable String categoria) {
+      return prodRepo.findByCategoria(categoria);
   }
 
   @DeleteMapping("/Borrando/{id}")
