@@ -1,5 +1,6 @@
 package com.practicasena.adso.mapper;
 
+
 import java.util.List;
 
 import com.practicasena.adso.dto.UsuarioDTO;
@@ -11,5 +12,5 @@ public interface UsuarioMapper {
 
     UsuarioDTO toUsuarioDTO(Usuario usuario);
 
-    //List<UsuarioDTO> toUsuariosDtos(List<Usuario>)
+    List<UsuarioDTO> toUsuarioDTOList(List<Usuario> usuarios);
 }

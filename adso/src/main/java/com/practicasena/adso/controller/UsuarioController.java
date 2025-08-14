@@ -24,12 +24,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 
+
+
 @RestController
 public class UsuarioController {
 
     @Autowired
     private UsuarioRepositorio userRepo;
-    private UsuarioServices userService;
+
+    @Autowired
+    private UsuarioServices userSer;
 
     @GetMapping("/user")
     public String UsuarioControl() {
@@ -71,8 +75,17 @@ public class UsuarioController {
     }   
 
     @GetMapping("/Dot/{id}")
-    public ResponseEntity<UsuarioDTO> getUsuario(@PathVariable Integer id_usuario) {
-        return new ResponseEntity<>(userService.getUsuario(id_usuario),HttpStatus.OK);
+    public ResponseEntity<UsuarioDTO> usuarioser(@PathVariable Integer id) {
+        return new ResponseEntity<>(userSer.getUsuario(id),HttpStatus.OK);
     }
 
+    @PostMapping("/agregarusuario")
+    public ResponseEntity<UsuarioDTO> saveUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        return new ResponseEntity<>(userSer.saveUsuario(usuarioDTO),HttpStatus.CREATED);
+    }
+    
+    @DeleteMapping("/borrarusuariodto/{id}")
+    public ResponseEntity<UsuarioDTO> deleteUsuario(@PathVariable Integer id){
+        return new ResponseEntity<>(userSer.deleteUsuario(id),HttpStatus.OK);|
+    }
 }
