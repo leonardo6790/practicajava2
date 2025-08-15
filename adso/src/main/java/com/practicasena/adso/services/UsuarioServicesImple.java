@@ -43,4 +43,10 @@ public class UsuarioServicesImple implements UsuarioServices{
         return userMap.toUsuarioDTO(usuario);
     }
 
+    @Override
+    public UsuarioDTO updateuser(Integer id_usuario, UsuarioDTO usuarioDTO){
+        Usuario usuario = userRepo.findById(id_usuario).get();
+        userMap.updateUsuario(usuario, usuarioDTO);
+        return userMap.toUsuarioDTO(userRepo.save(usuario));
+    }
 }

@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
-public class UsuarioDTO {
+public class ProductosDto {
     private Integer id;
-    private String nom;
-    private String ape;
-    private String ciu;
+    private String nomprod;
+    private String cate;
+    private Integer pre;
 }

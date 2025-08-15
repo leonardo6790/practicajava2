@@ -51,4 +51,14 @@ public List<UsuarioDTO> toUsuarioDTOList (List<Usuario> usuarios) {
     return usuarioDTOs;
 }
 
+@Override
+public void updateUsuario(Usuario usuario, UsuarioDTO usuarioDto){
+    if(usuarioDto == null){
+    return;
+    }
+    usuario.setNombre(usuarioDto.getNom());
+    usuario.setApellido(usuarioDto.getApe());
+    usuario.setCiudad(usuarioDto.getCiu());
+}
+
 }
